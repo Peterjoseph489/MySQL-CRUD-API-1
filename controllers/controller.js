@@ -44,9 +44,74 @@ const addTask = async (req, res) => {
 };
 
 
+const getOneTask = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const task = await userModel.findOne({ where: {id: id} });
+        if (!task) {
+            res.status(400).json({
+                message: 'No task found'
+            })
+        } else {
+            res.status(200).json({
+                message: task
+            })
+        }
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+};
+
+
+const UpdateOneTask = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const task = await userModel.update(req.body, { where: {id: id} });
+        if (!task) {
+            res.status(400).json({
+                message: 'No task found'
+            })
+        } else {
+            res.status(200).json({
+                message: task
+            })
+        }
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+};
+
+
+const deleteTask = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const task = await userModel.destroy({ where: {id: id} });
+        if (!task) {
+            res.status(400).json({
+                message: 'No task found'
+            })
+        } else {
+            res.status(200).json({
+                message: task
+            })
+        }
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+};
+
 
 
 module.exports = {
     addTask,
-    allTask
+    allTask,
+    getOneTask,
+    UpdateOneTask,
+    deleteTask
 }
