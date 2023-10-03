@@ -4,6 +4,7 @@ const router = require('./routes/route')
 const { sequelize, connectDB } = require('./config/dbConfig')
 
 const app = express();
+app.use(express.json())
 
 app.use('/learn', router)
 
