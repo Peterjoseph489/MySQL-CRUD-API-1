@@ -26,7 +26,8 @@ const addTask = async (req, res) => {
             description: req.body.description,
             isComplete: req.body.isComplete ? req.body.isComplete : false
         }
-        const newTask = await userModel.create(data);
+        const newT = userModel.build(data);
+        newTask = await newT.save();
         if (!newTask) {
             res.status(400).json({
                 message: 'No task found'
