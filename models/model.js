@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize')
 
 const userModel = sequelize.define('Task', {
     content: {
-        types: DataTypes.STRING,
+        type: DataTypes.STRING,
         validate: {
             max: 150
         }
