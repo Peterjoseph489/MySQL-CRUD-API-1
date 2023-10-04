@@ -157,13 +157,6 @@ const searchTasks = async (req, res) => {
 
 
 
-
-
-
-
-
-
-
 module.exports = {
     addTask,
     allTask,
