@@ -21,6 +21,8 @@ const userModel = sequelize.define('Task', {
 });
 
 
+
+// Syncing my Model to the database so as to create tables for each entry.
 (async () => {
     try {
         await sequelize.sync();
