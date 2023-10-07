@@ -1,7 +1,7 @@
 const { sequelize, connectDB } = require('../config/dbConfig')
 const { DataTypes } = require('sequelize')
 
-
+// Model buildup
 const userModel = sequelize.define('Task', {
     content: {
         type: DataTypes.STRING,
